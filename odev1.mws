@@ -1,0 +1,91 @@
+{VERSION 6 0 "IBM INTEL NT" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 
+2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Maple Output" -1 
+11 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }3 3 0 
+0 0 0 1 0 1 0 2 2 0 1 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart:" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 1051 "Odev:=proc(f,P,X,Y) local i,j,n, \+
+g,d1,XP, YP,TV, dXY,dYX, LieXY,LXf;\nn:= nops(X):\n\nprint(\"Girilen F
+onksiyon f\" =f);\nprint(\"Girilen nokta P\"=P);\nprint(\"Girilen vekt
+or alani X\" =X);\nprint(\"Girilen vektor alani Y\"=Y);\n\n\nd1:=seq(x
+[k]=P[k],k=1..n):\nXP:=[seq(subs(d1,X[i]),i=1..n)]:\nprint(\"X(P)\"=XP
+);\n\nYP:=[seq(subs(d1,Y[i]),i=1..n)]:\nprint(\"Y(P)\"=YP);\n\nTV:=[se
+q(50*XP[i]+51*YP[i],i=1..n)]:\nprint(\"Tanjant Vektor: 50.X(P)+51.Y(P)
+\"=TV);\ndXY:=[]:\n\nfor j from 1 to n do\n  for i from 1 to n do\n   \+
+  g[i]:=diff(Y[j],x[i]):\n  od:\n   dXY:=[op(dXY),simplify(sum(X[m]*g[
+m],m=1..n))]:\n  od:\n   print(\"D(X,Y) Kovaryant Turev\"=dXY);\ndYX:=
+[]:\n\n\nfor j from 1 to n do\n   for i from 1 to n do\n      g[i]:=di
+ff(X[j],x[i]):\n   od:\n   dYX:=[op(dYX), simplify(sum(Y[m]*g[m], m=1.
+.n) )]:\nod:\n\nprint(\"D(Y,X) kovaryant turevi\"=dYX);\n\nLieXY:=[seq
+(simplify(dXY[i]-dYX[i]), i=1..n)]:\nprint(\"[X,Y] Lie Operatoru\"= Li
+eXY);\n\nfor i from 1 to n do\ng[i]:= diff(f,x[i]):\nod:\nLXf:= simpli
+fy( sum(X[m]*g[m], m=1..n)):\nprint(\"LXf lie Turevi\"= LXf);\nprint(
+\"LXY lie Turevi = [X,Y]\"= LieXY);\nend:" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 7 "#ORNEK1" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+31 "f:=x[1]*x[2]+3*x[2]^2+x[3]^2+5:" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 12 "P:=[-4,1,2]:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 47 "X:=[x[3]^3+x[2]^4,3*x[1]^2*x[2],2*x[1]^3*x[2]]:" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 31 "Y:=[x[2]*x[3],2*x[1]^2,x[1]^3]:" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 14 "Odev(f,P,X,Y);" }}{PARA 11 
+"" 1 "" {XPPMATH 20 "6#/Q4Girilen~Fonksiyon~f6\",**&&%\"xG6#\"\"\"F+&F
+)6#\"\"#F+F+*&\"\"$F+)F,F.F+F+*$)&F)6#F0F.F+F+\"\"&F+" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#/Q0Girilen~nokta~P6\"7%!\"%\"\"\"\"\"#" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#/Q7Girilen~vektor~alani~X6\"7%,&*$)&%\"xG6#
+\"\"$F-\"\"\"F.*$)&F+6#\"\"#\"\"%F.F.,$*(F-F.)&F+6#F.F3F.F1F.F.,$*(F3F
+.)F8F-F.F1F.F." }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q7Girilen~vektor~al
+ani~Y6\"7%*&&%\"xG6#\"\"#\"\"\"&F)6#\"\"$F,,$*&F+F,)&F)6#F,F+F,F,*$)F3
+F/F," }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q%X(P)6\"7%\"\"*\"#[!$G\"" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q%Y(P)6\"7%\"\"#\"#K!#k" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#/Q@Tanjant~Vektor:~50.X(P)+51.Y(P)6\"7%\"$_&\"%K
+S!%k'*" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q7D(X,Y)~Kovaryant~Turev6\"
+7%,&**\"\"$\"\"\")&%\"xG6#F*\"\"#F*&F-6#F/F*&F-6#F)F*F**(F/F*)F,F)F*)F
+0F/F*F*,$*(\"\"%F*,&*$)F2F)F*F**$)F0F9F*F*F*F,F*F*,$*(F)F*F:F*F+F*F*" 
+}}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q8D(Y,X)~kovaryant~turevi6\"7%,&*(
+\"\")\"\"\")&%\"xG6#F*\"\"#F*)&F-6#F/\"\"$F*F**(F3F*)F,F3F*)&F-6#F3F/F
+*F*,&**\"\"'F*)F1F/F*F7F*F,F*F**&F;F*)F,\"\"%F*F*,&**F;F*F<F*F7F*F+F*F
+**&F?F*)F,\"\"&F*F*" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q4[X,Y]~Lie~Op
+eratoru6\"7%,***\"\"$\"\"\")&%\"xG6#F*\"\"#F*&F-6#F/F*&F-6#F)F*F**(F/F
+*)F,F)F*)F0F/F*F**(\"\")F*F+F*)F0F)F*!\"\"*(F)F*F5F*)F2F/F*F:,**(\"\"%
+F*F,F*)F2F)F*F**(F?F*F,F*)F0F?F*F***\"\"'F*F6F*F2F*F,F*F:*&FDF*)F,F?F*
+F:,**(F)F*F+F*F@F*F**(F)F*F+F*FBF*F***FDF*F6F*F2F*F+F*F:*&F?F*)F,\"\"&
+F*F:" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q/LXf~lie~Turevi6\",,*&&%\"xG
+6#\"\"#\"\"\")&F)6#\"\"$F0F,F,*$)F(\"\"&F,F,*(F0F,)&F)6#F,F0F,F(F,F,*(
+\"#=F,)F6F+F,)F(F+F,F,**\"\"%F,F5F,F(F,F.F,F," }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/Q7LXY~lie~Turevi~=~[X,Y]6\"7%,***\"\"$\"\"\")&%\"xG6#F
+*\"\"#F*&F-6#F/F*&F-6#F)F*F**(F/F*)F,F)F*)F0F/F*F**(\"\")F*F+F*)F0F)F*
+!\"\"*(F)F*F5F*)F2F/F*F:,**(\"\"%F*F,F*)F2F)F*F**(F?F*F,F*)F0F?F*F***
+\"\"'F*F6F*F2F*F,F*F:*&FDF*)F,F?F*F:,**(F)F*F+F*F@F*F**(F)F*F+F*FBF*F*
+**FDF*F6F*F2F*F+F*F:*&F?F*)F,\"\"&F*F:" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 7 "#ORNEK2" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 22 "
+f:=2*x[1]*x[2]+x[3]^2:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 12 "P
+:=[1,-1,2]:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 26 "X:=[x[1]^2,x
+[2]^2,x[3]^2]:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 35 "Y:=[x[1]*
+x[3],x[2]*x[3],x[1]*x[2]]:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+14 "Odev(f,P,X,Y);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q4Girilen~Fonks
+iyon~f6\",&*(\"\"#\"\"\"&%\"xG6#F)F)&F+6#F(F)F)*$)&F+6#\"\"$F(F)F)" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q0Girilen~nokta~P6\"7%\"\"\"!\"\"\"\"
+#" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q7Girilen~vektor~alani~X6\"7%*$)
+&%\"xG6#\"\"\"\"\"#F,*$)&F*6#F-F-F,*$)&F*6#\"\"$F-F," }}{PARA 11 "" 1 
+"" {XPPMATH 20 "6#/Q7Girilen~vektor~alani~Y6\"7%*&&%\"xG6#\"\"\"F+&F)6
+#\"\"$F+*&&F)6#\"\"#F+F,F+*&F(F+F0F+" }}{PARA 11 "" 1 "" {XPPMATH 20 "
+6#/Q%X(P)6\"7%\"\"\"F'\"\"%" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q%Y(P)
+6\"7%\"\"#!\"#!\"\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q@Tanjant~Vekt
+or:~50.X(P)+51.Y(P)6\"7%\"$_\"!#_\"$\\\"" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/Q7D(X,Y)~Kovaryant~Turev6\"7%,&*&)&%\"xG6#\"\"\"\"\"#F-&F+6#\"
+\"$F-F-*&)F/F.F-F*F-F-,&*&)&F+6#F.F.F-F/F-F-*&F3F-F7F-F-,&*&F)F-F7F-F-
+*&F6F-F*F-F-" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q8D(Y,X)~kovaryant~tu
+revi6\"7%,$*(\"\"#\"\"\")&%\"xG6#F*F)F*&F-6#\"\"$F*F*,$*(F)F*)&F-6#F)F
+)F*F/F*F*,$**F)F*F,F*F5F*F/F*F*" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q4
+[X,Y]~Lie~Operatoru6\"7%,&*&)&%\"xG6#\"\"\"\"\"#F-&F+6#\"\"$F-!\"\"*&)
+F/F.F-F*F-F-,&*&)&F+6#F.F.F-F/F-F2*&F4F-F8F-F-,(*&F)F-F8F-F-*&F7F-F*F-
+F-**F.F-F*F-F8F-F/F-F2" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q/LXf~lie~T
+urevi6\",(*(\"\"#\"\"\")&%\"xG6#F)F(F)&F,6#F(F)F)*(F(F))F.F(F)F+F)F)*&
+F(F))&F,6#\"\"$F6F)F)" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/Q7LXY~lie~Tu
+revi~=~[X,Y]6\"7%,&*&)&%\"xG6#\"\"\"\"\"#F-&F+6#\"\"$F-!\"\"*&)F/F.F-F
+*F-F-,&*&)&F+6#F.F.F-F/F-F2*&F4F-F8F-F-,(*&F)F-F8F-F-*&F7F-F*F-F-**F.F
+-F*F-F8F-F/F-F2" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}
+{MARK "10 0 0" 12 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 
+2 33 1 1 }
